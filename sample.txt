@@ -1,0 +1,10 @@
+//docker run -d --name=prometheus -p 9090:9090 -v C:\250327_monitor\prometheus:/etc/prometheus/prometheus.yml prom/prometheus
+
+//아래 코드로 해야 실행이 된다. - 같은 이름의 docker가 있으면 실행이 안되므로 그거 제거하고 실행해준다.
+docker run -d --name=prometheus -p 9090:9090 -v C:\250327_monitor\prometheus\prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+
+
+//docker run --name loki -d -v C:\250327_monitor\loki:/mnt/config -p 3100:3100 grafana/loki:3.0.0 -config.file=/mnt/config/loki-config.yml
+//경로 C:\250327_monitor\loki
+//위의 명령어가 실행 안돼서 아래 명령어로 실행했따. -- 두개의 대시를 사용해야한다.
+docker run --name loki -d -v C:\250327_monitor\loki:/mnt/config -p 3100:3100 grafana/loki:3.0.0 --config.file=/mnt/config/loki-config.yml
